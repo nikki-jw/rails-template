@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+{
+    aus_state_list: [
+        "New South Wales",
+        "South Australia",
+        "Queensland",
+        "Western Australia",
+        "Victoria",
+        "Tasmania",
+        "Australian Capital Territory",
+        "Northern Territory"
+    ]
+
+}
