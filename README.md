@@ -1,15 +1,15 @@
 # My 2 way market place template
 
 Link to the deployed app: www.myapp.com 
-Link to github repo: www.github.myrepo.com
+Github repository: https://github.com/nikki-jw/rails-template
 
 ## Section 1: Requirement checklist 
 
 Each time you have completed a requirement check it off the list. This way it will be easy for the educators as well as yourselves to track your progress.
 
 
-- [ ] 1. Create your app using Ruby on Rails.
-- [ ] 2. Use Postgresql database in development and production.
+- [x] 1. Create your app using Ruby on Rails.
+- [x] 2. Use Postgresql database in development and production.
 - [ ] 3. My app has authentication (eg. Devise).
 - [ ] 4. My app has authorisation (i.e. users have restrictions on what they can see and edit).
 - [ ] 5. My app has some type of file (eg. images) uploading capability.
@@ -56,6 +56,7 @@ NB leave the Titles as they are and answer the questions below.
 
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
+This application caters for those whom don't own an animal but would like the experience for a short period of time. Also, for people who already own animals but may need a 'babysitter'. 
 
 
 ##### 3.2 Why is the problem identified a problem that needs solving?
