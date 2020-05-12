@@ -1,5 +1,10 @@
 class PetListing < ApplicationRecord
-  belongs_to :species
-  has_one :species
   belongs_to :user
+
+  has_one :species
+  has_one :user
+
+  has_many :messages
+  has_many :favourites
+
 end

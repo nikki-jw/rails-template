@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_041228) do
+ActiveRecord::Schema.define(version: 2020_05_12_020410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,55 @@ ActiveRecord::Schema.define(version: 2020_05_11_041228) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.string "dislikes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "pet_listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_listing_id"], name: "index_favourites_on_pet_listing_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "message"
+    t.bigint "user_id"
+    t.bigint "pet_listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_listing_id"], name: "index_messages_on_pet_listing_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "pet_listing_dislikes", force: :cascade do |t|
+    t.bigint "pet_listing_id"
+    t.bigint "dislike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dislike_id"], name: "index_pet_listing_dislikes_on_dislike_id"
+    t.index ["pet_listing_id"], name: "index_pet_listing_dislikes_on_pet_listing_id"
+  end
+
+  create_table "pet_listing_likes", force: :cascade do |t|
+    t.bigint "pet_listing_id"
+    t.bigint "like_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["like_id"], name: "index_pet_listing_likes_on_like_id"
+    t.index ["pet_listing_id"], name: "index_pet_listing_likes_on_pet_listing_id"
   end
 
   create_table "pet_listings", force: :cascade do |t|
@@ -59,6 +108,14 @@ ActiveRecord::Schema.define(version: 2020_05_11_041228) do
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "favourites", "pet_listings"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "messages", "pet_listings"
+  add_foreign_key "messages", "users"
+  add_foreign_key "pet_listing_dislikes", "dislikes"
+  add_foreign_key "pet_listing_dislikes", "pet_listings"
+  add_foreign_key "pet_listing_likes", "likes"
+  add_foreign_key "pet_listing_likes", "pet_listings"
   add_foreign_key "pet_listings", "species"
   add_foreign_key "pet_listings", "users"
 end

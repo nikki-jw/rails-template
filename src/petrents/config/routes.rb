@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   get "/petlistings", to: "petlistings#index"
   get "petlistings/:id", to: "petlistings#show"
-  get "petlistings/create", to:"petlistings#create"
+  get "petlistings/create", to: "petlistings#create"
 end

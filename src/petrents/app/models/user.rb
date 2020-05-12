@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-# has_many :petlistings, dependents: :destroy
+  has_one :city         
+
+  has_many :petlistings
+  has_many :messages
+  has_many :favourites
 end
